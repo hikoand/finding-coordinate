@@ -1,17 +1,26 @@
-const circle = document.querySelector('.circle-wrap');
+const horizontal = document.querySelector('.horizontal');
+const vertical = document.querySelector('.vertical');
+const target = document.querySelector('.target');
+
 const circle_coordinate = document.querySelector('.circle-coordinate');
 const coordinate_text = document.querySelector('.circle-coordinate p');
 
 document.addEventListener('mousemove', (e) => {
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-  circle.style.left = mouseX + 30 + 'px';
-  circle.style.top = mouseY + 10 + 'px';
+  const x = e.clientX;
+  const y = e.clientY;
 
-  circle_coordinate.style.left = mouseX + 'px';
-  circle_coordinate.style.top = mouseY + 'px';
+  // 수직수평선 위치변경
+  vertical.style.left = `${x}px`;
+  horizontal.style.top = `${y}px`;
 
-  coordinate_text.innerHTML = `X: ${mouseX} <br> Y: ${mouseY}`;
+  // 이미지 위치변경
+  target.style.left = `${x}px`;
+  target.style.top = `${y}px`;
+
+  circle_coordinate.style.left = `${x}px`;
+  circle_coordinate.style.top = `${y}px`;
+
+  coordinate_text.innerHTML = `X: ${x} <br> Y: ${y}`;
 });
 
 const click_here = document.querySelector('.img-wrap');
